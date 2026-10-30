@@ -9,7 +9,8 @@ Aplicación 2D para escritorio y móvil, sin requisito WebGL.
 
 - NC exacta normalizada y búsqueda de matriz PH por primeros 16 dígitos.
 - Coordenadas WGS 84, dirección/localidad Georef y clic sobre mapa. La búsqueda por
-  ubicación devuelve candidatas: requiere confirmación expresa y reconsulta de NC.
+  ubicación analiza automáticamente una candidata única y reconsulta su NC. Si hay
+  varias parcelas en el punto, permite elegir. Una NC posicional aproximada requiere selección.
 - Localización asistida desde NC posicional cuando existe ese formato y no se
   recupera una geometría. Nunca se evalúa un punto como si fuera una parcela.
 - Redes EDEMSA, EDESTE, cooperativas y alta tensión; mapa/satélite y capas activables.

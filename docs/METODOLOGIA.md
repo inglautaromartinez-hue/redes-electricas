@@ -37,8 +37,10 @@ en GetCapabilities. No se modificó el servidor ni se atribuye valor registral a
 
 1. NC 21: búsqueda exacta, con/sin formato, en la capa departamental. Ausencia
    completa habilita búsqueda por prefijo 16, única en ambos formatos combinados.
-2. Identidad y topología verificadas. Coordenadas/clic/dirección requieren selección
-   de candidata y una nueva consulta por NC; nunca se analiza un centroide sustituto.
+2. Identidad y topología verificadas. Coordenadas/clic/dirección analizan una única
+   candidata automáticamente mediante nueva consulta por NC. Si hay varias, requieren
+   selección. Una NC posicional aproximada conserva la selección explícita. Nunca
+   se analiza un punto como sustituto de la geometría parcelaria.
 3. Consulta de redes por bbox parcelario ampliado 200 m; máximo 400 registros/fuente,
    2,5 MB/respuesta,50.000 vértices/fuente,12 s/consulta. Una respuesta truncada falla
    de forma explícita. La falta de fuente no equivale a ausencia de red.

@@ -6,7 +6,7 @@ Versión metodológica 2026-10-30.1.
 
 - [EPRE: reglamentación 144/155-2025](https://epremendoza.gob.ar/reglamento-condiciones-tecnicas/)
 - [Anexo 155/2025](https://epremendoza.gob.ar/2019/resoluciones-anexos/Res%20155-2025.pdf)
-- [Orden de Servicio 577 del Registro de la Propiedad](https://jusmendoza.gob.ar/wp-content/uploads/2024/02/Orden-de-Servicio-N%C 2%B 0-577.pdf)
+- [Orden de Servicio 577 del Registro de la Propiedad](https://jusmendoza.gob.ar/wp-content/uploads/2024/02/Orden-de-Servicio-N%C2%B0-577.pdf)
 
 La tablaII (página 10 del anexo) establece valores típicos; las observaciones y
 punto 5 exigen verificar diseño, estructuras y flecha. Ztotal incluye Zmáx y dos

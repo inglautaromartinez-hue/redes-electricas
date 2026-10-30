@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "node scripts/clean.mjs && vite build && node scripts/build-worker.mjs",
+    "build": "node scripts/clean.mjs && vite build && node scripts/build-worker.mjs && node scripts/prepare-pages.mjs",
     "test": "node --test test/*.test.js",
-    "preview": "wrangler dev",
-    "deploy": "npm run build && wrangler deploy",
+    "preview": "wrangler pages dev build/pages",
+    "deploy": "npm run build && wrangler pages deploy build/pages --project-name idecam-redes-electricas",
     "types": "wrangler types"
   },
   "dependencies": {

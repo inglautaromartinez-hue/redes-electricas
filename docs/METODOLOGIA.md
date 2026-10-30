@@ -60,3 +60,13 @@ Incorporar tipo constructivo y antecedente técnico por tramo; luego incorporar
 polígonos de afectación respaldados por acto/plano, jurisdicción, fecha y fuente.
 Mantener separados `servidumbre documentada` y `franja estimada`; una tabla de
 voltajes o un buffer no constituye el derecho real/administrativo.
+
+## Presentación por parcela
+
+La consulta interna mantiene las cuatro fuentes y el recorte de búsqueda para
+verificar el resultado. La vista y las descargas sólo muestran líneas cuya franja
+intersecta la parcela. Se recorta la línea relacionada al entorno inmediato y se
+representa únicamente la intersección dentro de los límites parcelarios; no se
+dibujan bandas ni se listan redes ajenas a esa intersección. Los avisos de fuentes
+incompletas o anchos desconocidos se conservan: ocultar redes cercanas no convierte
+una consulta incompleta en un resultado negativo.

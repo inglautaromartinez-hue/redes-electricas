@@ -43,3 +43,17 @@ test('geometría inválida y recorte masivo no se analizan',()=>{
  assert.throws(()=>searchBox({geometry:null}));
  const bad=polygon([[[0,0],[1,1],[0,1],[1,0],[0,0]]]);assert.throws(()=>analyzeParcel(bad,sources([])));
 });
+
+test('la vista parcelaria excluye alta tensión cercana y recorta la línea relacionada',async()=>{
+ const {parcelView}=await import('../src/domain/parcel-view.js');
+ const r=analyzeParcel(parcel,sources([line(),line(132,'unrelated',-68.8485)]));
+ assert.equal(r.rows.length,2);
+ const v=parcelView(parcel,r);
+ assert.deepEqual(v.rows.map(x=>x.sourceId),['1']);
+ assert.deepEqual(v.lines.features.map(x=>x.properties.sourceId),['1']);
+ assert.ok(v.lines.features[0].geometry.coordinates[0][1]>-32.901);
+ assert.equal(r.status,'REFERENCE_INTERSECTION');
+ const failed=analyzeParcel(parcel,sources([line(132,'unrelated',-68.8485)],false));
+ assert.equal(parcelView(parcel,failed).rows.length,0);
+ assert.equal(failed.status,'INDETERMINATE');
+});

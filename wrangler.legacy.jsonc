@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "idecam-redes-electricas",
+  "main": "src/legacy-redirect.js",
+  "account_id": "8c1da54c09166389c57b0cfb6eb26492",
+  "compatibility_date": "2026-10-30",
+  "workers_dev": true,
+  "observability": {"enabled": true, "head_sampling_rate": 0.1, "redact_query_string": true}
+}

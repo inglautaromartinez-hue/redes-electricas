@@ -3,7 +3,7 @@
 Consulta parcelaria de Mendoza y comparación con franjas de seguridad de referencia.
 Aplicación 2D para escritorio y móvil, sin requisito WebGL.
 
-[**Abrir visor publicado**](https://idecam-redes-electricas.inglautaromartinez.workers.dev/)
+[**Abrir visor publicado**](https://idecam-redes-electricas.pages.dev/)
 
 ## Funciones
 
@@ -14,7 +14,9 @@ Aplicación 2D para escritorio y móvil, sin requisito WebGL.
 - Localización asistida desde NC posicional cuando existe ese formato y no se
   recupera una geometría. Nunca se evalúa un punto como si fuera una parcela.
 - Redes EDEMSA, EDESTE, cooperativas y alta tensión; mapa/satélite y capas activables.
-- Comparación de escenarios de media tensión; intersección y superficie estimadas.
+- Resultado centrado en una parcela: superficie estimada y ancho total/por lado.
+- Mapa y exportaciones sólo con líneas cuyas franjas intersectan esa parcela;
+  sin listado de redes cercanas. Comparación de escenarios de media tensión.
 - Descarga CSV/GeoJSON, ficha imprimible y guía de uso/metodología.
 
 ## Alcance y datos pendientes
@@ -43,18 +45,21 @@ npm run build
 npm run preview
 ```
 
-`npm run preview` sirve frontend y API mediante Wrangler local. Para desarrollo
+`npm run preview` sirve frontend y API mediante Pages local. Para desarrollo
 con recarga, ejecutar también `npm run dev` (proxy/api hacia puerto 8787).
 
-`npm run deploy` usa la sesión Cloudflare de quien despliega y Static Assets.
-La alternativa `build/connector-worker.js` integra exactamente los mismos
-archivos en un Worker autocontenido, para publicación mediante el conector.
-En ese modo todas las solicitudes cuentan como invocaciones de Workers; no
-debe confundirse con la cuota de archivos estáticos de Static Assets.
+`npm run deploy` publica el frontend y la API en el proyecto independiente
+Cloudflare Pages `idecam-redes-electricas`, con una sesión autorizada de Wrangler.
+El build prepara `_worker.js` y `_routes.json`: sólo `/api/*` ejecuta funciones.
+Los archivos del visor se entregan como contenido estático.
 
-CI GitHub ejecuta pruebas y build. El repositorio no incluye tokens ni una
-credencial de despliegue automático: las publicaciones se efectúan con la
-conexión autorizada de Cloudflare o una sesión Wrangler autorizada.
+El enlace anterior de Workers redirige al dominio neutral de Pages. La configuración
+del redireccionamiento está en `wrangler.legacy.jsonc`; no cambia el subdominio
+general de la cuenta ni afecta otros proyectos.
+
+CI GitHub ejecuta pruebas y build. No se incluyen tokens ni credenciales de
+despliegue automático. Las publicaciones usan la conexión autorizada de
+Cloudflare o la sesión Wrangler de quien despliega.
 
 ## Arquitectura y privacidad
 
@@ -66,7 +71,7 @@ conexión autorizada de Cloudflare o una sesión Wrangler autorizada.
 - NC sólo hacia la capa departamental configurada. No descarga provincial.
 - No se solicitan ni devuelven titulares, avalúos ni datos registrales.
 - No hay analytics propios, credenciales incrustadas ni logs de nomenclaturas.
-  La observabilidad de plataforma elimina la querystring.
+  La app no registra nomenclaturas ni coordenadas en logs propios.
 - Georef es una ayuda de ubicación, no evidencia de identificación parcelaria.
 
 Fuentes técnicas reutilizadas del proyecto ZSF del mismo titular: normalización,

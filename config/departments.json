@@ -1,0 +1,20 @@
+{
+  "01": {"name": "Capital", "parcelLayer": "geonode:a__LGS_GRP_oct_CAPITAL"},
+  "03": {"name": "Las Heras", "parcelLayer": "geonode:a__LGS_GRP_oct_LAS_HERAS"},
+  "04": {"name": "Guaymallén", "parcelLayer": "geonode:a__LGS_GRP_oct_GUAYMALLEN"},
+  "05": {"name": "Godoy Cruz", "parcelLayer": "geonode:a__LGS_GRP_oct_GODOY_CRUZ"},
+  "06": {"name": "Luján de Cuyo", "parcelLayer": "geonode:lujan2"},
+  "07": {"name": "Maipú", "parcelLayer": "geonode:a__LGS_GRP_oct_MAIPU"},
+  "08": {"name": "San Martín", "parcelLayer": "geonode:a__LGS_GRP_oct_SAN_MARTIN"},
+  "09": {"name": "Junín", "parcelLayer": "geonode:a__LGS_GRP_oct_JUNIN"},
+  "10": {"name": "Rivadavia", "parcelLayer": "geonode:a__LGS_GRP_oct_RIVADAVIA"},
+  "11": {"name": "Santa Rosa", "parcelLayer": "geonode:a__LGS_GRP_oct_SANTA_ROSA"},
+  "12": {"name": "La Paz", "parcelLayer": "geonode:a__LGS_GRP_oct_LA_PAZ"},
+  "13": {"name": "Lavalle", "parcelLayer": "geonode:a__LGS_GRP_oct_LAVALLE"},
+  "14": {"name": "Tupungato", "parcelLayer": "geonode:a__LGS_GRP_oct_TUPUNGATO"},
+  "15": {"name": "Tunuyán", "parcelLayer": "geonode:a__LGS_GRP_oct_TUNUYAN"},
+  "16": {"name": "San Carlos", "parcelLayer": "geonode:a__LGS_GRP_oct_SAN_CARLOS"},
+  "17": {"name": "San Rafael", "parcelLayer": "geonode:a__LGS_GRP_oct_SAN_RAFAEL"},
+  "18": {"name": "General Alvear", "parcelLayer": "geonode:a__LGS_GRP_oct_GENERAL_ALVEAR"},
+  "19": {"name": "Malargüe", "parcelLayer": "geonode:a__LGS_GRP_oct_MALARGUE"}
+}

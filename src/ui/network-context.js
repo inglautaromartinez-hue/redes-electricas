@@ -1,14 +1,18 @@
 import L from 'leaflet';
-import { NETWORKS } from '../../config/networks.js';
+import { NETWORKS, WFS_URL } from '../../config/networks.js';
 
 // Context is intentionally separate from the parcel analysis and its exports.
 export function showNetworkContext({map,api,styles}) {
   map.createPane('networkContext');
   map.getPane('networkContext').style.zIndex='390';
-  const layers=Object.fromEntries(NETWORKS.map(source=>[source.id,L.geoJSON(null,{
-    pane:'networkContext',interactive:false,
-    style:{...styles[source.id],weight:2.4,opacity:.85,className:'network-line'}
-  }).addTo(map)]));
+  const layers=Object.fromEntries(NETWORKS.map(source=>[source.id,L.tileLayer.wms(
+    WFS_URL.replace(/\/wfs$/, '/wms'),{
+      layers:source.layer,format:'image/png',transparent:true,version:'1.1.1',
+      pane:'networkContext',maxZoom:20,opacity:.85,
+      bounds:[[-37.6,-71.5],[-31.5,-66]],
+      sld_body:networkSld(source.layer,styles[source.id]),
+      attribution:'Redes eléctricas: IDECAM'
+    }).addTo(map)]));
   const legend=document.createElement('div');
   legend.className='network-reference';
   legend.innerHTML='<b>Redes eléctricas</b><div class="network-reference-keys"></div><small role="status" aria-live="polite"></small>';
@@ -24,28 +28,27 @@ export function showNetworkContext({map,api,styles}) {
   document.querySelector('.map-bottom').prepend(legend);
   const label=document.createElement('label');label.innerHTML='<input type="checkbox" checked>Redes del mapa';
   document.querySelector('.layer-options').prepend(label);
-  let controller,timer,version=0;
-  const clear=()=>Object.values(layers).forEach(layer=>layer.clearLayers());
   const status=text=>{legend.querySelector('small').textContent=text;};
-  async function refresh(){
-    const generation=++version;controller?.abort();clear();
-    if(!label.firstElementChild.checked){status('Capa oculta');return;}
-    const bounds=map.getBounds();
-    const box=[Math.max(-71.5,bounds.getWest()),Math.max(-37.6,bounds.getSouth()),Math.min(-66,bounds.getEast()),Math.min(-31.5,bounds.getNorth())];
-    const [w,s,e,n]=box;
-    if(map.getZoom()<12||(e-w)*(n-s)>.15||e-w>1||n-s>1){status('Acercá el mapa para ver las redes');return;}
-    if(w>=e||s>=n){status('Fuera del área de consulta');return;}
-    controller=new AbortController();status('Cargando redes del mapa…');
-    try{
-      const data=await api('/api/networks',{bbox:box.join(',')},controller.signal);
-      if(generation!==version)return;
-      let count=0;
-      for(const source of data.sources){for(const feature of source.features){layers[source.id]?.addData(feature);count++;}}
-      status(!data.complete?'Cobertura parcial · alguna fuente no respondió':count?'Referencias del área visible · no acreditan servidumbre':'Sin redes en las referencias consultadas');
-    }catch(error){if(error.name!=='AbortError'&&generation===version)status('No se pudieron cargar las redes · mové el mapa para reintentar');}
+  const pending=new Set();
+  let failed=false;
+  const update=()=>status(!label.firstElementChild.checked?'Capa oculta':failed?
+    'Cobertura parcial · alguna imagen no se pudo cargar':pending.size?
+    'Cargando redes del mapa…':'Referencias del área visible · no acreditan servidumbre');
+  for(const [id,layer] of Object.entries(layers)){
+    layer.on('loading',()=>{pending.add(id);update();});
+    layer.on('load',()=>{pending.delete(id);update();});
+    layer.on('tileerror',()=>{failed=true;update();});
   }
-  map.on('movestart',()=>{version++;controller?.abort();clearTimeout(timer);});
-  map.on('moveend',()=>{clearTimeout(timer);timer=setTimeout(refresh,350);});
-  label.firstElementChild.addEventListener('change',()=>{for(const layer of Object.values(layers))label.firstElementChild.checked?map.addLayer(layer):map.removeLayer(layer);refresh();});
-  refresh();
+  map.on('movestart',()=>{failed=false;});
+  label.firstElementChild.addEventListener('change',()=>{
+    for(const layer of Object.values(layers))label.firstElementChild.checked?map.addLayer(layer):map.removeLayer(layer);
+    update();
+  });
+  update();
+}
+
+// Explicit cartographic styling avoids source styles with scale-dependent hiding.
+export function networkSld(layer,style){
+  const dash=style.dashArray?`<CssParameter name="stroke-dasharray">${style.dashArray}</CssParameter>`:'';
+  return `<?xml version="1.0" encoding="UTF-8"?><StyledLayerDescriptor version="1.0.0" xmlns="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc"><NamedLayer><Name>${layer}</Name><UserStyle><FeatureTypeStyle><Rule><LineSymbolizer><Stroke><CssParameter name="stroke">#ffffff</CssParameter><CssParameter name="stroke-width">3.6</CssParameter></Stroke></LineSymbolizer><LineSymbolizer><Stroke><CssParameter name="stroke">${style.color}</CssParameter><CssParameter name="stroke-width">2</CssParameter>${dash}</Stroke></LineSymbolizer></Rule></FeatureTypeStyle></UserStyle></NamedLayer></StyledLayerDescriptor>`;
 }

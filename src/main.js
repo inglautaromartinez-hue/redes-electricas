@@ -1,3 +1,4 @@
+import { showNetworkContext } from './ui/network-context.js';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import '@fontsource-variable/atkinson-hyperlegible-next/wght.css';
@@ -88,3 +89,5 @@ document.querySelectorAll('[data-layer]').forEach(input=>input.addEventListener(
 $('#help-open').addEventListener('click',()=>$('#help').showModal());$('#help-close').addEventListener('click',()=>$('#help').close());$('#help').addEventListener('click',e=>{if(e.target===$('#help'))$('#help').close();});
 let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>map.invalidateSize(),100);});
 enhanceInterface({map,consult,locate,api,getCurrent:()=>current,getAnalysis:()=>analysis,getBusy:()=>busy,notice,fitFeature});
+
+showNetworkContext({map,api,styles:lineStyles});

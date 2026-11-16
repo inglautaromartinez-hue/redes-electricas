@@ -428,3 +428,15 @@ dialog dd { margin: 4px 0 16px; color: var(--muted); line-height: 1.6; }
 .panel-scroll > .location-button { display:inline-flex; flex-shrink:0; order:-3; align-self:flex-start; margin:0 0 8px; }
 .result-parcel {font-variant-numeric:tabular-nums; overflow-wrap:anywhere;}
 @media print { .location-button { display:none !important; } }
+
+/* Quiet context lines; selected-parcel results retain their stronger styling. */
+.network-reference { pointer-events:auto; max-width:330px; padding:9px 11px; border:1px solid #c5d0dc; border-radius:8px; background:rgba(255,255,255,.96); color:var(--blue-dark); font-size:11px; box-shadow:var(--shadow-control); }
+.network-reference>b { display:block; font-size:12px; margin-bottom:5px; }
+.network-reference-keys { display:grid; grid-template-columns:1fr 1fr; gap:4px 12px; }
+.network-reference-keys>span { display:flex; align-items:center; gap:5px; }
+.network-reference-keys svg { width:28px; height:8px; flex-shrink:0; }
+.network-reference small { display:block; margin-top:5px; line-height:1.4; color:#52667c; }
+.map-bottom { flex-wrap:wrap; }
+.map-bottom .layers { margin-left:auto; }
+@media(max-width:767px) { .network-reference { max-width:100%; padding:6px 8px; font-size:10px; } .network-reference>b { font-size:11px; } .network-reference-keys { gap:2px 8px; } .map-bottom .estimate-tag { display:none; } }
+@media print { .network-reference { box-shadow:none; max-width:85mm; } }

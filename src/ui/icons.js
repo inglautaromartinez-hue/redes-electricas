@@ -1,0 +1,3 @@
+import {createElement,Search,ArrowRight,ArrowUpRight,Layers,LocateFixed,Crosshair,ChevronDown,ChevronUp,CheckCircle2,TriangleAlert,Info,X,Copy,Printer,Menu,MapPin,Zap} from 'lucide';
+const icons={search:Search,arrow:ArrowRight,external:ArrowUpRight,layers:Layers,locate:LocateFixed,fit:Crosshair,down:ChevronDown,up:ChevronUp,ok:CheckCircle2,warning:TriangleAlert,info:Info,close:X,copy:Copy,print:Printer,menu:Menu,pin:MapPin,zap:Zap};
+export function icon(name){const svg=createElement(icons[name]||Info);svg.setAttribute('aria-hidden','true');svg.setAttribute('focusable','false');svg.classList.add('icon');return svg;}

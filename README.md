@@ -46,7 +46,7 @@ npm run preview
 ```
 
 `npm run preview` sirve frontend y API mediante Pages local. Para desarrollo
-con recarga, ejecutar también `npm run dev` (proxy/api hacia puerto 8787).
+con recarga, ejecutar `npm run dev`: sirve la interfaz y los mismos handlers de API localmente, sin requerir un segundo proceso.
 
 `npm run deploy` publica el frontend y la API en el proyecto independiente
 Cloudflare Pages `idecam-redes-electricas`, con una sesión autorizada de Wrangler.
@@ -76,3 +76,14 @@ Cloudflare o la sesión Wrangler de quien despliega.
 
 Fuentes técnicas reutilizadas del proyecto ZSF del mismo titular: normalización,
 catálogo departamental, validación topológica y conversión de NC posicional.
+
+## Rediseño de interfaz · noviembre 2026
+
+Buscador unificado con búsquedas específicas disponibles, tipografía local, iconos SVG,
+panel móvil de tres posiciones, ubicación voluntaria, enlace con escenario, resultado
+centrado en la parcela, porcentaje de superficie e impresión. Se preservan cálculos,
+fuentes y API. Revisado con Astra y Sol 6.1 en razonamiento muy alto.
+
+- [Diagnóstico y evidencias](docs/AUDITORIA_DISENO.md)
+- [Propuesta, librerías, microcopy y límites de verificación](docs/REDISENO_INTERFAZ.md)
+- [Bocetos responsive](docs/redesign-wireframes.svg)

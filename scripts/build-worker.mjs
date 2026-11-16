@@ -5,7 +5,7 @@ await mkdir('build',{recursive:true});
 await build({entryPoints:['src/worker.js'],bundle:true,format:'esm',platform:'browser',target:'es2022',minify:true,outfile:'build/worker.js'});
 // Connector deployments can use this self-contained alternative when uploading
 // a Static Assets manifest is unavailable. It shares the identical frontend.
-const mime={'.html':'text/html; charset=utf-8','.js':'application/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.png':'image/png'};
+const mime={'.html':'text/html; charset=utf-8','.js':'application/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.woff2':'font/woff2','.txt':'text/plain; charset=utf-8'};
 const assets={};
 async function walk(dir,prefix=''){for(const entry of await readdir(dir,{withFileTypes:true})){const path=join(dir,entry.name),key=prefix+'/'+entry.name;if(entry.isDirectory())await walk(path,key);else{const bytes=await readFile(path);assets[key]={data:bytes.toString('base64'),type:mime[extname(path)]??'application/octet-stream'};}}}
 await walk('dist');

@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1260" viewBox="0 0 1440 1260" role="img" aria-labelledby="title desc">
+<title id="title">Redes eléctricas · IDECAM · Propuesta responsive</title>
+<desc id="desc">Bocetos del panel móvil en sus tres posiciones, panel plegable en tablet y columna fija de escritorio. La leyenda y las atribuciones quedan sobre el panel. El resultado incluye siempre el alcance orientativo.</desc>
+<defs>
+  <pattern id="territory" width="94" height="76" patternUnits="userSpaceOnUse">
+    <rect width="94" height="76" fill="#edf3fa"/>
+    <path d="M0 20H94M20 0V76M70 0V76" stroke="#d5deea" stroke-width="2"/>
+    <path d="M22 22H68V74H22Z" fill="#e1e8f0" stroke="#c6d2e0"/>
+  </pattern>
+  <symbol id="map" viewBox="0 0 360 570">
+    <rect width="360" height="570" fill="url(#territory)"/>
+    <path d="M-10 400 130 240 390 85" fill="none" stroke="#fff" stroke-width="12"/>
+    <path d="M-10 400 130 240 390 85" fill="none" stroke="#9b3276" stroke-width="4"/>
+    <path d="M136 172H220V255H136Z" fill="#254e82" fill-opacity=".1" stroke="#173254" stroke-width="3"/>
+    <path d="M170 172H192L136 224V202Z" fill="#e77727" fill-opacity=".55" stroke="#a64012" stroke-dasharray="4 3"/>
+  </symbol>
+  <symbol id="search" viewBox="0 0 328 74">
+    <text x="0" y="14" class="label">Nomenclatura, coordenadas o dirección</text>
+    <rect x="0" y="24" width="272" height="46" rx="6" fill="#fff" stroke="#7c8ea5"/>
+    <text x="12" y="53" class="hint">NC, coordenadas o dirección</text>
+    <rect x="280" y="24" width="48" height="46" rx="6" fill="#254e82"/>
+    <circle cx="302" cy="44" r="7" fill="none" stroke="#fff" stroke-width="2"/>
+    <path d="m307 49 6 6" stroke="#fff" stroke-width="2"/>
+  </symbol>
+  <symbol id="result" viewBox="0 0 328 270">
+    <text x="0" y="14" class="kicker">RESULTADO DE LA CONSULTA</text>
+    <path d="m1 42 10-17 10 17Z" fill="none" stroke="#79520b" stroke-width="2"/>
+    <text x="30" y="42" class="verdict">Intersección estimada</text>
+    <rect x="0" y="55" width="328" height="62" rx="4" fill="#edf3fa"/>
+    <text x="12" y="78" class="legal">Estimación orientativa; no acredita</text>
+    <text x="12" y="99" class="legal">una servidumbre constituida.</text>
+    <text x="0" y="145" class="hint">Superficie parcelaria aprox.</text>
+    <text x="328" y="145" text-anchor="end" class="label">1.248 m²</text>
+    <path d="M0 158H328" stroke="#cbd5e2"/>
+    <text x="0" y="184" class="hint">Intersección estimada</text>
+    <text x="0" y="220" class="metric">86,4 m²</text>
+    <text x="328" y="220" text-anchor="end" class="label">6,9 %</text>
+    <path d="M0 235H328" stroke="#cbd5e2"/>
+    <text x="0" y="263" class="label">Detalle técnico y nomenclatura</text>
+    <text x="328" y="263" text-anchor="end" class="label">+</text>
+  </symbol>
+  <symbol id="controls" viewBox="0 0 188 44">
+    <rect x="0" y="0" width="44" height="44" rx="6" class="control"/><path d="M12 16v-5h5m10 0h5v5m0 12v5h-5m-10 0h-5v-5" fill="none" stroke="#173254" stroke-width="2"/>
+    <rect x="52" y="0" width="72" height="44" rx="6" class="control"/><text x="88" y="27" text-anchor="middle" class="label">Satélite</text>
+    <rect x="132" y="0" width="56" height="44" rx="6" class="control"/><text x="160" y="27" text-anchor="middle" class="label">Limpiar</text>
+  </symbol>
+</defs>
+<style>
+  text{font-family:'Atkinson Hyperlegible Next',Arial,sans-serif;fill:#173254}.title{font-size:30px;font-weight:700}.subtitle{font-size:16px;fill:#596776}.section{font-size:19px;font-weight:700}.note{font-size:14px;fill:#596776}.label{font-size:14px;font-weight:600}.hint{font-size:14px;fill:#596776}.kicker{font-size:11px;font-weight:700;letter-spacing:1px}.verdict{font-size:21px;font-weight:700}.legal{font-size:14px}.metric{font-size:30px;font-weight:700;fill:#254e82}.control{fill:white;stroke:#9aaec7}.brand{font-size:20px;font-weight:700}.small{font-size:11px;fill:#596776}.sheet{fill:white;stroke:#cbd5e2}.heading{font-size:22px;font-weight:700}
+</style>
+<rect width="1440" height="1260" fill="#fff"/>
+<text x="24" y="38" class="title">Una consulta clara, con el mapa siempre a mano.</text>
+<text x="24" y="65" class="subtitle">Redes eléctricas · IDECAM / Bocetos de estructura y jerarquía. Los datos del ejemplo son ilustrativos.</text>
+<!-- Mobile, search position -->
+<g transform="translate(24 108)">
+  <text x="0" y="0" class="section">Celular · buscador</text><text x="0" y="25" class="note">Inicio: mapa y búsqueda al alcance del pulgar.</text>
+  <svg x="0" y="44" width="370" height="620" viewBox="0 0 370 620" overflow="hidden">
+    <rect width="370" height="620" rx="16" fill="#fff" stroke="#9aaec7"/>
+    <use href="#map" x="5" y="56" width="360" height="558"/>
+    <path d="M1 57H369" stroke="#cbd5e2"/><text x="16" y="35" class="brand">IDE · CAM</text><text x="352" y="34" text-anchor="end" class="label">Cómo funciona</text>
+    <use href="#controls" x="164" y="72" width="188" height="44"/>
+    <rect x="16" y="322" width="242" height="48" rx="4" class="control"/><text x="27" y="342" class="small">Parcela consultada</text><text x="27" y="359" class="small">▣ Límite · ▧ Intersección</text>
+    <text x="354" y="387" text-anchor="end" class="small">Leaflet · © OpenStreetMap</text>
+    <path d="M0 410Q0 392 18 392H352Q370 392 370 410V620H0Z" class="sheet"/>
+    <rect x="165" y="399" width="40" height="4" rx="2" fill="#8b9caf"/><text x="185" y="424" text-anchor="middle" class="small">Expandir panel ⌃</text>
+    <text x="20" y="456" class="heading">Consultá una parcela</text>
+    <use href="#search" x="20" y="473" width="328" height="74"/>
+    <text x="20" y="568" class="small">Pegá una NC de 21 dígitos o buscá un lugar.</text>
+    <text x="20" y="600" class="label">◎ Usar mi ubicación</text>
+  </svg>
+</g>
+<!-- Mobile, result position -->
+<g transform="translate(535 108)">
+  <text x="0" y="0" class="section">Celular · resultado</text><text x="0" y="25" class="note">Tras consultar: veredicto y alcance a la vista.</text>
+  <svg x="0" y="44" width="370" height="620" viewBox="0 0 370 620" overflow="hidden">
+    <rect width="370" height="620" rx="16" fill="#fff" stroke="#9aaec7"/>
+    <use href="#map" x="5" y="56" width="360" height="558"/>
+    <path d="M1 57H369" stroke="#cbd5e2"/><text x="16" y="35" class="brand">IDE · CAM</text><text x="352" y="34" text-anchor="end" class="label">Cómo funciona</text>
+    <use href="#controls" x="164" y="72" width="188" height="44"/>
+    <text x="354" y="254" text-anchor="end" class="small">Leaflet · © OpenStreetMap</text>
+    <path d="M0 281Q0 263 18 263H352Q370 263 370 281V620H0Z" class="sheet"/>
+    <rect x="165" y="270" width="40" height="4" rx="2" fill="#8b9caf"/><text x="185" y="295" text-anchor="middle" class="small">Ver más detalles ⌃</text>
+    <use href="#search" x="20" y="310" width="328" height="74"/>
+    <text x="20" y="411" class="label">◎ Usar mi ubicación</text>
+    <path d="M20 431H348" stroke="#cbd5e2"/>
+    <use href="#result" x="20" y="446" width="328" height="270"/>
+    <rect x="1" y="608" width="368" height="12" fill="#fff"/>
+    <path d="M359 448V596" stroke="#cbd5e2" stroke-width="3"/>
+  </svg>
+</g>
+<!-- Mobile, technical position -->
+<g transform="translate(1046 108)">
+  <text x="0" y="0" class="section">Celular · detalle</text><text x="0" y="25" class="note">Panel completo y contenido desplazable.</text>
+  <svg x="0" y="44" width="370" height="620" viewBox="0 0 370 620" overflow="hidden">
+    <rect width="370" height="620" rx="16" fill="#fff" stroke="#9aaec7"/>
+    <use href="#map" x="5" y="56" width="360" height="558"/>
+    <path d="M1 57H369" stroke="#cbd5e2"/><text x="16" y="35" class="brand">IDE · CAM</text><text x="352" y="34" text-anchor="end" class="label">Cómo funciona</text>
+    <path d="M0 90Q0 72 18 72H352Q370 72 370 90V620H0Z" class="sheet"/>
+    <rect x="165" y="79" width="40" height="4" rx="2" fill="#8b9caf"/><text x="185" y="104" text-anchor="middle" class="small">Reducir panel ⌄</text>
+    <use href="#search" x="20" y="119" width="328" height="74"/>
+    <text x="20" y="218" class="label">◎ Usar mi ubicación</text><path d="M20 237H348" stroke="#cbd5e2"/>
+    <use href="#result" x="20" y="252" width="328" height="270"/>
+    <path d="M20 535H348" stroke="#cbd5e2"/><text x="20" y="560" class="label">Copiar enlace · CSV · GeoJSON · Imprimir</text>
+    <path d="M20 579H348" stroke="#cbd5e2"/><text x="20" y="606" class="label">Escenario de media tensión</text>
+    <path d="M359 251V596" stroke="#cbd5e2" stroke-width="3"/>
+  </svg>
+</g>
+<!-- Wider layouts -->
+<text x="24" y="838" class="section">Tablet · panel plegable sobre el mapa</text>
+<text x="24" y="864" class="note">768–1099 px. Se puede ocultar para priorizar el territorio.</text>
+<g transform="translate(24 884)">
+  <rect width="600" height="300" rx="8" fill="url(#territory)" stroke="#9aaec7"/>
+  <rect x="0" y="0" width="600" height="44" rx="8" fill="#fff" stroke="#cbd5e2"/><text x="14" y="29" class="brand">IDE · CAM</text><text x="585" y="28" text-anchor="end" class="label">Cómo funciona</text>
+  <rect x="0" y="44" width="248" height="256" fill="#fff" stroke="#cbd5e2"/>
+  <text x="16" y="72" class="kicker">REDES ELÉCTRICAS · MENDOZA</text><text x="16" y="105" class="heading">Consultá una parcela</text>
+  <rect x="16" y="125" width="216" height="42" rx="4" fill="#fff" stroke="#7c8ea5"/><text x="25" y="151" class="hint">NC, coordenadas o dirección</text>
+  <text x="16" y="195" class="label">◎ Usar mi ubicación</text><path d="M16 210H232" stroke="#cbd5e2"/>
+  <text x="16" y="235" class="label">Intersección estimada</text><text x="16" y="259" class="small">Estimación orientativa; no acredita</text><text x="16" y="277" class="small">una servidumbre constituida.</text>
+  <rect x="260" y="56" width="44" height="44" rx="6" class="control"/><path d="M272 70H292M272 78H292M272 86H292" stroke="#173254" stroke-width="2"/>
+  <path d="M310 260 420 170 600 115" stroke="#fff" stroke-width="9" fill="none"/><path d="M310 260 420 170 600 115" stroke="#9b3276" stroke-width="3" fill="none"/>
+  <rect x="395" y="140" width="66" height="60" fill="#254e82" fill-opacity=".1" stroke="#173254" stroke-width="3"/>
+  <text x="588" y="287" text-anchor="end" class="small">Leaflet · © OpenStreetMap</text>
+</g>
+<text x="672" y="838" class="section">Escritorio · columna fija y mapa independiente</text>
+<text x="672" y="864" class="note">Desde 1100 px. Panel de 400–420 px, con lectura acotada.</text>
+<g transform="translate(672 884)">
+  <rect width="744" height="300" rx="8" fill="url(#territory)" stroke="#9aaec7"/>
+  <rect x="0" y="0" width="744" height="44" rx="8" fill="#fff" stroke="#cbd5e2"/><text x="14" y="29" class="brand">IDE · CAM</text><text x="728" y="28" text-anchor="end" class="label">Cómo funciona</text>
+  <rect x="0" y="44" width="248" height="256" fill="#fff" stroke="#cbd5e2"/>
+  <text x="16" y="72" class="kicker">REDES ELÉCTRICAS · MENDOZA</text><text x="16" y="105" class="heading">Consultá una parcela</text>
+  <rect x="16" y="125" width="216" height="42" rx="4" fill="#fff" stroke="#7c8ea5"/><text x="25" y="151" class="hint">NC, coordenadas o dirección</text>
+  <text x="16" y="195" class="label">◎ Usar mi ubicación</text><path d="M16 210H232" stroke="#cbd5e2"/>
+  <text x="16" y="235" class="label">Intersección estimada</text><text x="16" y="259" class="small">Estimación orientativa; no acredita</text><text x="16" y="277" class="small">una servidumbre constituida.</text>
+  <use href="#controls" x="540" y="56" width="188" height="44"/>
+  <path d="M310 260 460 170 744 110" stroke="#fff" stroke-width="9" fill="none"/><path d="M310 260 460 170 744 110" stroke="#9b3276" stroke-width="3" fill="none"/>
+  <rect x="435" y="140" width="66" height="60" fill="#254e82" fill-opacity=".1" stroke="#173254" stroke-width="3"/>
+  <text x="728" y="287" text-anchor="end" class="small">Leaflet · © OpenStreetMap</text>
+</g>
+<text x="24" y="1225" class="note">Azul #254e82 · Azul oscuro #173254 · Dorado #d4a63c como acento · Campos ≥16 px · Objetivos táctiles ≥44 px · Sin desplazamiento horizontal.</text>
+</svg>
